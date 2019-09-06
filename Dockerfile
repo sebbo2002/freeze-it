@@ -1,10 +1,11 @@
 FROM node
 RUN mkdir -p "/app"
 
+ARG UID=1099
+ARG GID=1099
+
 WORKDIR "/app"
 ADD "." "/app"
-RUN npm ci && \
-    npm run build
 
 # Crome & CUPS Client
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -14,4 +15,10 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
         fonts-kacst fonts-freefont-ttf --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
+RUN npm ci && \
+    npm run build && \
+    addgroup -gid $GID app && \
+    adduser -uid $UID --ingroup app --shell /bin/sh app
+
+USER app
 CMD [ "npm", "run", "start" ]
