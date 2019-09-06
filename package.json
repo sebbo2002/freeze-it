@@ -31,7 +31,6 @@
 		"grunt": "^1.0.4",
 		"grunt-browser-sync": "^2.2.0",
 		"grunt-contrib-clean": "^2.0.0",
-		"grunt-contrib-compress": "^1.5.0",
 		"grunt-contrib-copy": "^1.0.0",
 		"grunt-contrib-htmlmin": "^3.1.0",
 		"grunt-contrib-watch": "^1.1.0",

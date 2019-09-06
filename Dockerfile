@@ -6,12 +6,7 @@ ADD "." "/app"
 RUN apk update && \
     apk add \
         bash \
-        git \
-        libstdc++ \
-        python \
-        make \
-        gcc \
-        g++ && \
+        git && \
     npm ci && \
     npm run build
 
