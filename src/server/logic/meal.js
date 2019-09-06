@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('underscore');
 const moment = require('moment');
 const QRCode = require('qrcode');
 const ConfigHelper = require('../helpers/config');
