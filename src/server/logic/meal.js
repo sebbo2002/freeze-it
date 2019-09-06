@@ -123,7 +123,7 @@ class MealLogic extends BaseLogic {
         };
 
         return new Promise(resolve => {
-            convertHTMLToPDF(html, resolve, options, puppeteerArgs, false);
+            convertHTMLToPDF(html, resolve, options, puppeteerArgs);
         });
     }
 
