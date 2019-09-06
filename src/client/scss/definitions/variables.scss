@@ -1,0 +1,52 @@
+$font_default: 'OpenSans';
+
+
+
+$background: #212839;
+$yellow: #F9D44B;
+$orange: #EF7D40;
+$red: #E64C65;
+$text: #FFFFFF;
+
+
+
+$hover: "&:focus, &:hover, &:active";
+
+$wrapvalue: 5.5;
+$unwrap: (100 * $wrapvalue)/(100 - (2 * $wrapvalue)) * 1%;
+$wrap: $wrapvalue * 1%;
+
+@mixin clearfix() {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@function em($px, $context: 16) {
+	@return ($px / $context) * 1em;
+}
+
+@mixin hideme() {
+	position: absolute;
+	left: -3000px;
+}
+
+@mixin smaller($px) {
+	@media only screen and (max-width: em($px)) {
+		@content;
+	}
+}
+
+@mixin greater($px) {
+	@media only screen and (min-width: em($px + 1)) {
+		@content;
+	}
+}
+
+@mixin sharptext() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+}

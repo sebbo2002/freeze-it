@@ -1,0 +1,36 @@
+<ul class="add-details__list">
+	<li class="add-details__meal" rv-each-item="items">
+		<input type="text" maxlength="48" rv-value="item.model:name" class="add-details__meal-name" />
+
+		<div class="add-details__meal-container">
+			<label class="add-details__field">
+				<span class="add-details__field-label">Portionen</span>
+				<input type="number" class="add-details__field-input" rv-value="item.model:servings" placeholder="-" pattern="[0-9]*" />
+				<span class="add-details__field-unit">Portionen</span>
+			</label>
+			<label class="add-details__field">
+				<span class="add-details__field-label">Datum</span>
+				<input type="date" class="add-details__field-input" rv-value="item.date" rv-on-change="item.dateChange" placeholder="-" />
+			</label>
+			<label class="add-details__field">
+				<span class="add-details__field-label">Gewicht</span>
+				<input type="number" class="add-details__field-input" rv-value="item.model:weight" placeholder="-" pattern="[0-9]*" />
+				<span class="add-details__field-unit">Gramm</span>
+			</label>
+			<label class="add-details__field">
+				<span class="add-details__field-label">Kategorie</span>
+				<input type="text" class="add-details__field-input" rv-value="item.model:category" placeholder="-" />
+			</label>
+			<label class="add-details__field">
+				<span class="add-details__field-label">Energie</span>
+				<input type="number" class="add-details__field-input" rv-value="item.model:calories" placeholder="-" pattern="[0-9]*" />
+				<span class="add-details__field-unit">kcal</span>
+			</label>
+		</div>
+	</li>
+</ul>
+
+<div class="add-details__buttons">
+	<button class="add-details__button add-details__button--cancel" rv-on-click="view.cancel">Abbrechen</button>
+	<button class="add-details__button add-details__button--next" rv-on-click="view.print">Drucken</button>
+</div>

@@ -1,0 +1,46 @@
+{
+	"favicons": {
+		"dir": "auto",
+		"background": "#ffffff",
+		"theme_color": "#ffffff",
+		"appleStatusBarStyle": "black-translucent",
+		"display": "standalone",
+		"orientation": "any",
+		"scope": "/",
+		"logging": true,
+		"pixel_art": false,
+		"loadManifestWithCredentials": false,
+		"icons": {
+			"android": {
+				"offset": -10,
+				"background": "#666D77"
+			},
+			"appleIcon": {
+				"offset": -5,
+				"background": "#666D77"
+			},
+			"appleStartup": {
+				"offset": 26,
+				"background": "#666D77"
+			},
+			"coast": {
+				"offset": -5,
+				"background": "#666D77"
+			},
+			"favicons": {
+				"offset": -17
+			},
+			"firefox": {
+				"offset": 0,
+				"background": "#666D77"
+			},
+			"windows": {
+				"offset": 5,
+				"background": "#666D77"
+			}
+		}
+	},
+	"sentry": {
+		"dsn": null
+	}
+}

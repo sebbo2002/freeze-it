@@ -1,0 +1,20 @@
+{
+	"app.name": "freeze it!",
+	"app.shortName": "freeze it!",
+	"app.description": "A mini webapp to manage the freezer compartment content",
+	"app.developerName": "Sebastian Pekarek",
+	"app.developerUrl": "https://sebbo.net",
+	"notFound.headline": "Seite nicht gefunden",
+	"notFound.message": "Entschuldigung, aber die Seite, die du suchst, wurde nicht gefunden.",
+	"error": {
+		"labels": {
+			"error": "Error",
+			"stacktrace": "Stacktrace",
+			"reference": "Referenz"
+		},
+		"default": {
+			"headline": "Es ist ein Fehler aufgetreten…",
+			"message": "Leider ist ein unerwarteter Fehler aufgetreten. Bitte versuche es erneut."
+		}
+	}
+}

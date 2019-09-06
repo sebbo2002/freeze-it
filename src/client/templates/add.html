@@ -1,0 +1,18 @@
+<h2 class="add__title" rv-class-add__title--fade-out="fadeOut.headline">Essen <br />einfrieren</h2>
+
+<div class="add__container" rv-class-add__container--fade-out="fadeOut.bottom">
+	<ul class="add__list">
+		<li class="add__item" rv-each-item="items">
+			<button class="add__item-button" rv-on-click="item.click">
+				<span class="add__item-name">{ item.name }</span>
+				<span class="add__item-meta">{ item.date }</span>
+				<span class="add__item-counter" rv-class-add__item-counter--active="item.count">{ item.count } x</span>
+			</button>
+		</li>
+	</ul>
+</div>
+
+<div class="add__buttons" rv-class-add__buttons--fade-out="fadeOut.bottom">
+	<button class="add__button add__button--add" rv-on-click="view.add">+</button>
+	<button class="add__button add__button--next" rv-on-click="view.next" rv-disabled="meta.disabled">Weiter</button>
+</div>

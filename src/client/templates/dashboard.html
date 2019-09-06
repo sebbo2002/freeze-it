@@ -1,0 +1,42 @@
+<div class="dashboard__top">
+	<h2 class="dashboard__hi" rv-class-dashboard__hi--fade-out="fadeOut.headline">Hi { user:name }!</h2>
+
+	<div class="dashboard__gauge" rv-class-dashboard__gauge--fade-out="fadeOut.gauge">
+		<div class="dashboard__gauge-background"></div>
+		<canvas class="dashboard__gauge-content"></canvas>
+		<div class="dashboard__gauge-label">
+			<span class="dashboard__gauge-label-value">{ user:stats.available }</span>
+			<span class="dashboard__gauge-label-label">Essen<br/>eingefroren</span>
+		</div>
+	</div>
+
+	<div class="dashboard__stats" rv-class-dashboard__stats--fade-out="fadeOut.stats">
+		<div class="dashboard__stat">
+			<span class="dashboard__stat-value">{ user:stats.all }</span>
+			<span class="dashboard__stat-label">eingefroren</span>
+		</div>
+		<div class="dashboard__stat">
+			<span class="dashboard__stat-value">{ user:stats.eaten }</span>
+			<span class="dashboard__stat-label">gegessen</span>
+		</div>
+		<div class="dashboard__stat">
+			<span class="dashboard__stat-value">{ user:stats.removed }</span>
+			<span class="dashboard__stat-label">vernichtet</span>
+		</div>
+	</div>
+</div>
+
+<div class="dashboard__bottom" rv-class-dashboard__bottom--fade-out="fadeOut.bottom">
+	<ul class="list__content">
+		<li class="list__item" rv-each-meal="meals" rv-on-click="meal.click">
+			<button class="list__button">
+				<span class="list__name">{ meal.model:name }</span>
+				<span class="list__meta">{ meal.meta }</span>
+			</button>
+		</li>
+	</ul>
+</div>
+
+<button class="dashboard__add"
+		rv-class-dashboard__add--fade-out="fadeOut.bottom"
+		rv-on-click="view.add">Essen einfrieren</button>

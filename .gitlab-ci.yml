@@ -1,0 +1,52 @@
+stages:
+  - build
+  - deploy
+
+build_image:
+  stage: build
+  tags:
+    - matt.sebbo.net
+    - ssh
+  script:
+    - docker pull node:alpine
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build -t CI_REGISTRY_IMAGE .
+    - docker push CI_REGISTRY_IMAGE
+  only:
+    - develop
+    - master
+
+check:
+  stage: build
+  tags:
+    - matt.sebbo.net
+    - ssh
+  script:
+    - npm ci
+    - npm run check
+  except:
+    - develop
+
+deployment:
+  stage: deploy
+  tags:
+    - matt.sebbo.net
+    - ssh
+  script:
+    - docker login -u "gitlab-ci-token" -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE
+    - docker stop "$CI_PROJECT_PATH_SLUG" || true
+    - docker rm "$CI_PROJECT_PATH_SLUG" || true
+    - docker create --restart "always" --name="$CI_PROJECT_PATH_SLUG"
+      -p 127.0.0.1:10020:8080
+      -e DATABASE="${DATABASE}"
+      -e PAPRIKA_USERNAME="${PAPRIKA_USERNAME}"
+      -e PAPRIKA_PASSWORD="${PAPRIKA_PASSWORD}"
+      -e CALENDAR_URL="${CALENDAR_URL}"
+      -e PRINTER_URL_PREFIX="${PRINTER_URL_PREFIX}"
+      -e PRINTER_NAME="${PRINTER_NAME}"
+      -e PRINTER_HOST="${PRINTER_HOST}"
+      $CI_REGISTRY_IMAGE
+    - docker start "$CI_PROJECT_PATH_SLUG"
+  only:
+    - master

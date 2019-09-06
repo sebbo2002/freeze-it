@@ -1,0 +1,8 @@
+# Dependencies
+node_modules/**
+/dest
+/old
+/code-visualization
+/.devcache
+/.idea
+/*.paw

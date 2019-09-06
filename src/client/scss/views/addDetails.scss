@@ -1,0 +1,139 @@
+@import '../definitions/variables';
+
+.add-details {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+
+	&:after {
+		content: '';
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		height: env(safe-area-inset-top);
+		background: rgba($background, 0.9);
+	}
+
+	&__list {
+		padding: calc(env(safe-area-inset-top) + 80%) 0 calc(env(safe-area-inset-bottom) + 6.5em);
+	}
+
+	&__meal {
+		transition: opacity 0.3s ease-in 0.3s;
+
+		& + & {
+			margin-top: 2em;
+		}
+
+		.add-details--fade-out & {
+			opacity: 0;
+		}
+
+		&-name {
+			background: transparent;
+			padding: 0 1em 0.6em;
+			font-weight: bold;
+			font-size: 1.1em;
+			color: $text;
+		}
+
+		&-container {
+			width: 100%;
+			padding-bottom: 1em;
+			display: flex;
+			overflow-x: scroll;
+			scroll-snap-type: x mandatory;
+			align-items: stretch;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+
+	&__field {
+		flex: 0 0 7em;
+		flex-flow: column;
+		justify-content: end;
+		scroll-snap-align: center;
+		overflow: hidden;
+
+		margin: 0 1em;
+		padding: 0.6em 1em;
+		background: $text;
+		border-radius: 0.6em;
+
+		& + & {
+			margin-left: 0;
+		}
+
+		&-label {
+			font-size: 0.8em;
+			text-transform: uppercase;
+			color: rgba($background, 0.6);
+		}
+
+		&-input {
+			display: block;
+			width: 100%;
+			font-weight: bold;
+			font-size: 1.2em;
+			margin-top: 1.6em;
+			background: transparent;
+
+			&[type="date"] {
+				width: 2.55em;
+				overflow: hidden;
+			}
+		}
+
+		&-unit {
+			display: block;
+			font-size: 0.8em;
+			color: rgba($background, 0.6);
+		}
+	}
+
+	&__buttons {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $background;
+		padding: 1em 1em calc(env(safe-area-inset-bottom) + 1em) 1em;
+		transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+
+		.add-details--fade-out & {
+			transform: translate3d(0, 400px, 0);
+			opacity: 0;
+		}
+	}
+
+	&__button {
+		float: left;
+		display: block;
+		font-size: 1.2em;
+		padding: 1em 0;
+		z-index: 50;
+
+		color: $text;
+		border: 1px solid $text;
+		border-radius: 10px;
+
+		&--cancel {
+			width: calc(40% - 0.5em);
+			opacity: 0.4;
+		}
+
+		&--next {
+			width: calc(60% - 0.5em);
+			float: right;
+			background: $orange;
+			border-color: $orange;
+			color: $text;
+		}
+
+		&[disabled] {
+			background-color: #BBBEC3;
+			border-color: transparent;
+		}
+	}
+}

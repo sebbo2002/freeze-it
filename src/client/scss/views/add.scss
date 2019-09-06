@@ -1,0 +1,140 @@
+@import '../definitions/variables';
+
+.add {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	padding-top: calc(env(safe-area-inset-top) + 9em);
+
+	&__title {
+		position: fixed;
+		left: 1em;
+		top: calc(env(safe-area-inset-top) + 1em);
+		width: 100%;
+		font-size: 1.8em;
+		transition: transform 0.4s ease-in;
+
+		&--fade-out {
+			transform: translate3d(-200%, 0, 0);
+		}
+	}
+
+	&__container {
+		min-height: 100%;
+		background: $text;
+		padding: 1em 0 11em;
+		border-radius: 2em 2em 0 0;
+		transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+
+		&:after {
+			content: '';
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: calc(env(safe-area-inset-top) + 8em);
+			background: $text;
+			background: linear-gradient(to bottom, rgba($text, 0) 0%,rgba($text, 1) 40%);
+		}
+
+		&--fade-out {
+			transform: translate3d(0, 400px, 0);
+			opacity: 0;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			border-bottom: 1px solid #eee;
+		}
+
+		&-button {
+			position: relative;
+			width: 100%;
+			text-align: inherit;
+			padding: 1.4em 1.8em;
+			color: #444;
+		}
+
+		&-name {
+			display: block;
+			font-weight: bold;
+			font-size: 0.9em;
+
+			margin-right: 4em;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		&-meta {
+			display: block;
+			font-size: 0.7em;
+		}
+
+		&-counter {
+			position: absolute;
+			top: 2em;
+			bottom: 2em;
+			right: 2.3em;
+			line-height: 1.5em;
+
+			display: block;
+			font-size: 0.8em;
+			padding: 0.3em 1em;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+			color: #888;
+
+			&--active {
+				background: $orange;
+				border-color: $orange;
+				color: $text;
+			}
+		}
+	}
+
+	&__buttons {
+		position: fixed;
+		left: 1.8em;
+		right: 1.8em;
+		bottom: calc(env(safe-area-inset-bottom) + 1.8em);
+		transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+
+		&--fade-out {
+			transform: translate3d(0, 400px, 0);
+			opacity: 0;
+		}
+	}
+
+	&__button {
+		float: left;
+		width: 80px;
+		line-height: 80px;
+		height: 80px;
+		font-size: 1.2em;
+		z-index: 50;
+
+		background: $text;
+		border: 1px solid $background;
+		border-radius: 10px;
+
+		&--add {
+			width: 80px;
+			font-size: 1.6em;
+			margin-right: 20px;
+		}
+
+		&--next {
+			float: right;
+			width: calc(100% - 110px);
+			background: $background;
+			color: $text;
+		}
+
+		&[disabled] {
+			background-color: #BBBEC3;
+			border-color: transparent;
+		}
+	}
+}
