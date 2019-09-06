@@ -39,6 +39,7 @@ deployment:
     - docker rm "$CI_PROJECT_PATH_SLUG" || true
     - docker create --restart "always" --name="$CI_PROJECT_PATH_SLUG"
       -p 127.0.0.1:10020:8080
+      --link mariadb:db
       -e DATABASE="${DATABASE}"
       -e PAPRIKA_USERNAME="${PAPRIKA_USERNAME}"
       -e PAPRIKA_PASSWORD="${PAPRIKA_PASSWORD}"
