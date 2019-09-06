@@ -12,7 +12,7 @@ const models = {};
 let sequelize;
 try {
     sequelize = new Sequelize(ConfigHelper.getDatabaseURI(), {
-        logging: function (text) {
+        logging: () => {
             //console.log(text);
         },
         define: {

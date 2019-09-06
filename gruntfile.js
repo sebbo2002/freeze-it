@@ -23,7 +23,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-mkdir');
-    grunt.loadNpmTasks('grunt-zopfli');
 
     // HTML
     grunt.loadNpmTasks('grunt-template');
@@ -651,33 +650,6 @@ module.exports = function (grunt) {
 
 
     /*
-     * 🗜 Configure brotli and gzip
-     */
-    grunt.config.merge({
-        zopfli: {
-            app: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: './dest/',
-                        src: [
-                            '**/*.html',
-                            '**/*.js',
-                            '**/*.css',
-                            '**/*.json',
-                            '**/*.webapp',
-                            '**/*.xml'
-                        ],
-                        dest: './dest/',
-                        rename: (dest, src) => dest + src + '.gz'
-                    }
-                ]
-            }
-        }
-    });
-
-
-    /*
      * 👀 Debug Tools / Watcher
      */
     grunt.config.merge({
@@ -787,7 +759,6 @@ module.exports = function (grunt) {
         'build:js',
         'build:css',
         'build:assets',
-        'zopfli',
         'clean:tmp'
     ]);
 

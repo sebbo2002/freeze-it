@@ -38,7 +38,7 @@ class UserLogic extends BaseLogic {
         return res;
     }
 
-    static async create (attributes, options) {
+    static async create () {
         throw new ErrorResponse(501, 'Not implemented');
     }
 
