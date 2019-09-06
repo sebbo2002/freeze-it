@@ -115,9 +115,15 @@ class MealLogic extends BaseLogic {
             height: '62mm',
             printBackground: true
         };
+        const puppeteerArgs = {
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox'
+            ]
+        };
 
         return new Promise(resolve => {
-            convertHTMLToPDF(html, resolve, options, null, false);
+            convertHTMLToPDF(html, resolve, options, puppeteerArgs, false);
         });
     }
 
