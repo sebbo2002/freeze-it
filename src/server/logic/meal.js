@@ -143,11 +143,11 @@ class MealLogic extends BaseLogic {
         if(model.weight) {
             fields.push(`<div class="field field--weight">${model.weight}&nbsp;g</div>`);
         }
-        if(model.category) {
-            fields.push(`<div class="field field--category">${model.category}</div>`);
-        }
         if(model.calories) {
             fields.push(`<div class="field field--calories">${model.calories} kcal</div>`);
+        }
+        if(model.category) {
+            fields.push(`<div class="field field--category">${model.category}</div>`);
         }
 
         // qr code
