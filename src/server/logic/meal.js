@@ -123,7 +123,7 @@ class MealLogic extends BaseLogic {
         };
 
         return new Promise(resolve => {
-            convertHTMLToPDF(html, resolve, options, puppeteerArgs, false);
+            convertHTMLToPDF(html, resolve, options, puppeteerArgs);
         });
     }
 
@@ -156,6 +156,10 @@ class MealLogic extends BaseLogic {
 
         return `
             <style>
+                @font-face {
+                    font-family: 'American Typewriter';
+                    src: url('https://d.sebbo.net/American-Typewriter-Regular-v0fBkA9aF161dFukjnTwK2JoiCzfUTKcDuIZpALZAjAZp52tmX8QB4oukV02tDcymLDEy7OJCyYiRqnb7myr8LQHvAGv5ibTK9mY.ttf') format('truetype');
+                }
                 body {
                     position: relative;
                     font: 12px 'American Typewriter';
