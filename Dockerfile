@@ -1,8 +1,8 @@
 FROM node
 RUN mkdir -p "/app"
 
-ARG UID=1000
-ARG GID=1000
+ARG UID=1099
+ARG GID=1099
 
 WORKDIR "/app"
 ADD "." "/app"
