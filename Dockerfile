@@ -17,8 +17,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 
 RUN npm ci && \
     npm run build && \
-    addgroup -g $GID app && \
-    adduser -u $UID -G app -s /bin/sh -D app
+    addgroup -gid $GID app && \
+    adduser -uid $UID --ingroup app --shell /bin/sh app
 
 USER app
 CMD [ "npm", "run", "start" ]
