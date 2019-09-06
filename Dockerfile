@@ -1,13 +1,9 @@
-FROM node:alpine
+FROM node
 RUN mkdir -p "/app"
 
 WORKDIR "/app"
 ADD "." "/app"
-RUN apk update && \
-    apk add \
-        bash \
-        git && \
-    npm ci && \
+RUN npm ci && \
     npm run build
 
 CMD [ "npm", "run", "start" ]
