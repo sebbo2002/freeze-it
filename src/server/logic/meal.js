@@ -158,7 +158,7 @@ class MealLogic extends BaseLogic {
             <style>
                 body {
                     position: relative;
-                    font: 12px 'EB Garamond', 'American Typewriter', 'Vollkorn', 'sans-serif';
+                    font: 13px 'EB Garamond', 'American Typewriter', 'Vollkorn', 'sans-serif';
                     text-align: center;
                     margin-left: 1.1em;
                 }
@@ -168,6 +168,9 @@ class MealLogic extends BaseLogic {
                     border-top: 1px solid #000;
                     border-bottom: 1px solid #000;
                     margin-bottom: 0.4em;
+                }
+                .banner__heart {
+                    font: 12px courier;
                 }
                 .title {
                     padding: 0.2em;
@@ -234,7 +237,7 @@ class MealLogic extends BaseLogic {
                     z-index: 10;
                 }
             </style>
-            <div class="banner">mit ♡ handgemacht</div>
+            <div class="banner">mit <span class="banner__heart">♡</span> handgemacht</div>
             <div class="title">${model.name}</div>
             <div class="qr"><img src="${dataUri}" /></div>
             <div class="fields">${fields.join('')}</div>
