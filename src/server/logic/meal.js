@@ -41,7 +41,7 @@ class MealLogic extends BaseLogic {
         model.weight = parseInt(body.weight, 10) || null;
         model.category = body.category || null;
         model.calories = parseInt(body.calories, 10) || null;
-        model.cookedAt = body.cookedAt || null;
+        model.cookedAt = body.cookedAt || new Date();
 
         await model.save();
         await this.print(model);
@@ -58,7 +58,7 @@ class MealLogic extends BaseLogic {
         const sql = {
             where: {},
             order: [
-                ['createdAt', 'ASC']
+                ['cookedAt', 'ASC']
             ]
         };
 
@@ -158,7 +158,7 @@ class MealLogic extends BaseLogic {
             <style>
                 body {
                     position: relative;
-                    font: 13px 'EB Garamond', 'American Typewriter', 'Vollkorn', 'sans-serif';
+                    font: 14px 'EB Garamond', 'American Typewriter', 'Vollkorn', 'sans-serif';
                     text-align: center;
                     margin-left: 1.1em;
                 }
@@ -237,7 +237,7 @@ class MealLogic extends BaseLogic {
                     z-index: 10;
                 }
             </style>
-            <div class="banner">mit <span class="banner__heart">♡</span> handgemacht</div>
+            <div class="banner">mit <span class="banner__heart">&#9829; - &#9825;</span> handgemacht</div>
             <div class="title">${model.name}</div>
             <div class="qr"><img src="${dataUri}" /></div>
             <div class="fields">${fields.join('')}</div>
