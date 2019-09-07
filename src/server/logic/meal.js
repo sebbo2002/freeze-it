@@ -190,10 +190,13 @@ class MealLogic extends BaseLogic {
                 }
                 
                 .fields {
+                    position: relative;
                     overflow: hidden;
                     display: flex;
                     flex-wrap: wrap;
+                    z-index: 50;
                     justify-content: center;
+                    background: #fff;
                     border-style: solid;
                     border-color: #000;
                     border-width: 1px 0 0 1px;
