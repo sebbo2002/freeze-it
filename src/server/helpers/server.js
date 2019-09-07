@@ -49,15 +49,6 @@ class ServerHelper {
         this.loadRoutes();
         this.serveUI();
 
-        app.get('/test', async (req, res) => {
-            const MealLogic = require('../logic/meal');
-            const model = await MealLogic.getModel().findOne();
-            const pdf = await MealLogic.pdf(model);
-
-            res.setHeader("Content-Type", "application/pdf");
-            res.send(pdf);
-        });
-
         server.listen(ConfigHelper.getPort());
     }
 
