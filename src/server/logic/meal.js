@@ -155,6 +155,7 @@ class MealLogic extends BaseLogic {
         const dataUri = await QRCode.toDataURL(url, {margin: 1});
 
         return `
+            <meta charset="utf-8" /> 
             <style>
                 body {
                     position: relative;
