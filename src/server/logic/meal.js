@@ -31,7 +31,7 @@ class MealLogic extends BaseLogic {
     }
 
     static getValidStatusValues () {
-        return ['available', 'removed', 'eaten'];
+        return ['available', 'eaten', 'removed'];
     }
 
     static async create (body) {
