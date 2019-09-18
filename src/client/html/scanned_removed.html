@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="<%= language %>">
+
+<head>
+	<meta charset="utf-8">
+	<title><%= appName %></title>
+	<meta name="description" content="<%= appDescription %>">
+	<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover">
+
+	<%= metaTags %>
+
+	<link rel="stylesheet" href="/scanned.css">
+	<meta name="theme-color" content="#EC5C3D">
+</head>
+
+<body class="scanned scanned--removed">
+<main class="scanned__container">
+	<span class="scanned__icon">🚮</span>
+	<span class="scanned__title">Weg damit.</span>
+	<div class="scanned__meal">
+		<span class="scanned__meal-title">{meal:name}</span>
+		<span class="scanned__meal-category">{meal:category}</span>
+		<span class="scanned__meal-meta">{meal:meta}</span>
+	</div>
+
+	<button class="scanned__button" type="button" onclick="location.reload()">Doch noch eingefroren?</button>
+</main>
+
+</body>
+
+</html>

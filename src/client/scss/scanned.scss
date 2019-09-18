@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import
+"definitions/variables",
+"definitions/basics",
+"definitions/mixins",
+
+"reset";
+
+
+.scanned {
+	background: #222;
+
+	&--eaten {
+		background: #45BB99;
+	}
+	&--available {
+		background: #0081E6;
+	}
+	&--removed {
+		background: #FF615B;
+	}
+
+
+	&__container {
+		position: relative;
+		top: 50%;
+		margin-top: -12em;
+		padding: 0 2em;
+		text-align: center;
+	}
+
+	&__icon {
+		display: block;
+		font-size: 4em;
+	}
+
+	&__title {
+		display: block;
+		font-size: 1.6em;
+	}
+
+	&__meal {
+		margin: 4em 0 0;
+		padding: 1em;
+		font-size: 0.9em;
+		text-align: left;
+		color: #222;
+		background: rgba(255, 255, 255, 0.9);
+
+		&-title {
+			display: block;
+			font-weight: bold;
+		}
+
+		&-meta {
+			display: block;
+			font-size: 0.8em;
+
+			&:empty {
+				display: none;
+			}
+		}
+
+		&-category{
+			display: block;
+			font-size: 0.8em;
+			font-style: italic;
+
+			&:empty {
+				display: none;
+			}
+		}
+	}
+
+	&__button {
+		position: fixed;
+		left: 2em;
+		bottom: calc(env(safe-area-inset-top) + 2em);
+
+		display: block;
+		width: calc(100% - 4em);
+		margin: 4em 0 0;
+		padding: 1em;
+		font-size: 0.85em;
+		background: #222;
+		color: #FFF;
+	}
+	&--eaten &__button {
+		background: #FF615B;
+	}
+	&--available &__button {
+		background: #45BB99;
+	}
+	&--removed &__button {
+		background: #0081E6;
+	}
+}

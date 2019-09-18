@@ -257,6 +257,20 @@ module.exports = function (grunt) {
                         src: ['./src/client/scss/app.scss']
                     }
                 ]
+            },
+            scanned: {
+                options: {
+                    sourceMap: './dest/scanned.css.map',
+                    implementation: require('node-sass'),
+                    fiber: fibers,
+                    includePaths: ['./dest']
+                },
+                files: [
+                    {
+                        dest: './dest/scanned.css',
+                        src: ['./src/client/scss/scanned.scss']
+                    }
+                ]
             }
         },
         postcss: {
@@ -274,8 +288,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        dest: './dest/style.css',
-                        src: './dest/style.css'
+                        dest: './dest/scanned.css',
+                        src: './dest/scanned.css'
                     }
                 ]
             }

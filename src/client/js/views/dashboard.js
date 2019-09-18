@@ -84,7 +84,7 @@ module.exports = View.extend({
 
         this.listenToAndCall(this.model, 'change:stats', () => {
             const value = this.model.get('stats') ? this.model.get('stats').available : 0;
-            gauge.maxValue = Math.max(value + 1, 8);
+            gauge.maxValue = Math.max(value + 1, 4);
             gauge.set(value);
         });
     },

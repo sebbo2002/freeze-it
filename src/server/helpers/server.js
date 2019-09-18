@@ -47,6 +47,7 @@ class ServerHelper {
         }
 
         this.loadRoutes();
+        this.serveScanned();
         this.serveUI();
 
         server.listen(ConfigHelper.getPort());
@@ -97,6 +98,80 @@ class ServerHelper {
         catch (err) {
             const msg = err.toString().replace('Error:', '').trim();
             console.log('Unable to serve UI: %s', msg);
+        }
+    }
+
+    /**
+     * Register the route which handles
+     * scanned meals
+     */
+    static serveScanned () {
+        app.get(/([a-z0-9]{8})$/, async (req, res) => {
+            try {
+                await this.handleScanned(req.params[0], res);
+            }
+            catch (error) {
+                console.log(error);
+                res.status(500).send(error.toJSON());
+            }
+        });
+    }
+
+    /**
+     * Toogles  the meal's state
+     */
+    static async handleScanned (id, res) {
+        const path = require('path');
+        const fs = require('fs');
+        const templates = path.join(__dirname, '../../../dest/de-DE');
+
+        const MealLogic = require('../logic/meal');
+        const meal = await MealLogic.getModel().findOne({
+            where: {
+                id: {
+                    [DatabaseHelper.op('like')]: id + '%'
+                }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
+
+        const status = MealLogic.getValidStatusValues();
+        meal.status = MealLogic.getValidStatusValues()[status.indexOf(meal.status) + 1] || 'available';
+        await meal.save();
+
+        let template = path.join(templates, 'scanned.html');
+        if (meal.status === 'available') {
+            template = path.join(templates, 'scanned_available.html');
+        }
+        else if (meal.status === 'removed') {
+            template = path.join(templates, 'scanned_removed.html');
+        }
+
+        if (fs.existsSync(template)) {
+            const meta = [];
+
+            if(meal.servings) {
+                meta.push(`${meal.servings} Portion${meal.servings > 1 ? 'en' : ''}`);
+            }
+            if(meal.weight) {
+                meta.push(`${meal.weight} g`);
+            }
+            if(meal.calories) {
+                meta.push(`${meal.calories} kcal`);
+            }
+
+            const html = fs.readFileSync(template, {encoding: 'utf8'})
+                .replace('{meal:name}', meal.name)
+                .replace('{meal:meta}', meta.join(', '))
+                .replace('{meal:category}', meal.category || '');
+
+            res.set('Content-Type', 'text/html');
+            res.send(html);
+        }
+        else {
+            res.send(`Template "${template}" not found.`);
         }
     }
 
