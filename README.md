@@ -9,15 +9,9 @@
 ## 🧐 What's this?
 
 People who often freeze food may know the problem: you lose track of your freezer and chaos breaks out. To prevent this 
-from happening to me, I wrote this Mini-WebApp to record the contents of the subject. A connected label printer can be 
-used to automatically generate pretty labels for each entry, which can be stuck to the frozen - thus eliminating the need 
-for ugly handwritten labels. The printed QR code allows the entry to be removed quickly and easily.
-
-<br />
-
-## 🖼 Example Label
-
-![Foto](https://d.sebbo.net/89FA09A0-B6E0-4797-8D3B-42796971DCAA-YTCKPWbAVoqYARMJf9cNTyZb02mA1TD9YFKr15bixTJ8PFrKsZ7Hodb8Y91w4cyoceL4jRVUsr4C0z3ktlGZBCrgcBcz6e6Gtljy.jpg)
+from happening to me, I wrote this **Mini-WebApp to record the contents of your freezer**. A connected **label printer** can be 
+used to automatically **generate pretty labels** for each entry, which can be stuck to the frozen - thus eliminating the need 
+for ugly handwritten labels. The printed **QR code** allows the entry to be removed quickly and easily.
 
 <br />
 
@@ -29,6 +23,18 @@ for ugly handwritten labels. The printed QR code allows the entry to be removed 
 - Connection to label printer with [CUPS](https://www.cups.org/) (code adapted to 62mm wide labels)
 - [Paprika App](https://www.paprikaapp.com/) integration to create meals
 - Calendar integration to create meals
+
+<br />
+
+## 📱 Screenshots
+
+![Screenshots](https://d.sebbo.net/Bild-0U3geflvGOQpyPrQwtrIuAvsbz2X79BQuA767wo3rcdXPXJmLV7WEJbgrfZw7eYprE6eiRK7GQebh7m5p2pCaS2yJgYNcPnOaDYE.PNG)
+
+<br />
+
+## 🖼 Example Label
+
+![Foto](https://d.sebbo.net/89FA09A0-B6E0-4797-8D3B-42796971DCAA-YTCKPWbAVoqYARMJf9cNTyZb02mA1TD9YFKr15bixTJ8PFrKsZ7Hodb8Y91w4cyoceL4jRVUsr4C0z3ktlGZBCrgcBcz6e6Gtljy.jpg)
 
 <br />
 
