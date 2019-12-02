@@ -61,7 +61,7 @@ publish_github:
   script:
     - git checkout $CI_COMMIT_REF_NAME
     - git pull
-    - git push --force "https://${GITHUB_AUTH}@github.com/sebbo2002/plex-notifications.git" --all
+    - git push --force "https://${GITHUB_AUTH}@github.com/sebbo2002/freeze-it.git" --all
     - curl -X "POST" "${HUB_WEBHOOK}"
   only:
     - master
