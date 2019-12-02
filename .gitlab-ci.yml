@@ -8,7 +8,7 @@ build_image:
     - matt.sebbo.net
     - ssh
   script:
-    - docker pull node:alpine
+    - docker pull node
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE .
     - docker push $CI_REGISTRY_IMAGE
@@ -26,6 +26,7 @@ check:
     - npm run check
   except:
     - develop
+    - master
 
 deployment:
   stage: deploy
@@ -49,5 +50,17 @@ deployment:
       -e PRINTER_HOST="${PRINTER_HOST}"
       $CI_REGISTRY_IMAGE
     - docker start "$CI_PROJECT_PATH_SLUG"
+  only:
+    - master
+
+publish:
+  stage: deploy
+  tags:
+    - matt.sebbo.net
+    - ssh
+  script:
+    - git push "https://${GITHUB_AUTH}@github.com/sebbo2002/freeze-it.git" --all
+    - git push "https://${GITHUB_AUTH}@github.com/sebbo2002/freeze-it.git" --tags
+    - curl -X "POST" "${HUB_WEBHOOK}"
   only:
     - master
