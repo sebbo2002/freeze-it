@@ -5,7 +5,7 @@ ARG UID=1099
 ARG GID=1099
 
 WORKDIR "/app"
-ADD "." "/app"
+ADD package*.json "/app"
 
 # Crome & CUPS Client
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -14,8 +14,10 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     && apt-get install -y cups-client google-chrome-unstable fonts-ebgaramond fonts-ebgaramond-extra --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm ci && \
-    npm run build && \
+RUN npm ci
+ADD "." "/app"
+
+RUN npm run build && \
     addgroup -gid $GID app && \
     adduser -uid $UID --ingroup app --shell /bin/sh --system app
 
