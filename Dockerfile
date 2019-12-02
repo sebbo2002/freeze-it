@@ -5,7 +5,7 @@ ARG UID=1099
 ARG GID=1099
 
 WORKDIR "/app"
-ADD package*.json "/app"
+ADD package*.json "/app/"
 
 # Crome & CUPS Client
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
