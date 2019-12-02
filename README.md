@@ -32,9 +32,12 @@ for ugly handwritten labels. The printed **QR code** allows the entry to be remo
 
 <br />
 
-## 🖼 Example Label
+## 🖼 Label Examples
 
 ![Foto](https://d.sebbo.net/89FA09A0-B6E0-4797-8D3B-42796971DCAA-YTCKPWbAVoqYARMJf9cNTyZb02mA1TD9YFKr15bixTJ8PFrKsZ7Hodb8Y91w4cyoceL4jRVUsr4C0z3ktlGZBCrgcBcz6e6Gtljy.jpg)
+<br /><br />
+![Foto](https://d.sebbo.net/IMG_1506-SiT0T0gnciMxkhCJRhisgFEBOxokaPKlPUMjMy0JNO9xg3xJ4ASUEGj31BbJ6sNbL9AymIpaXyNIkp3hwDHOwgaUN5RG4w355Dha.jpg)
+
 
 <br />
 
