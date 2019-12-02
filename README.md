@@ -3,6 +3,7 @@
     <br /><br /><br />
 </div>
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Status](https://git-badges.sebbo.net/104/develop/build)](https://github.com/ubud-app/server)
 
 ## 🧐 What's this?
@@ -49,3 +50,4 @@ for ugly handwritten labels. The printed QR code allows the entry to be removed 
 - [General terms and conditions](https://github.com/ubud-app/server/blob/develop/Terms.md)
 - [Privacy Statement](https://github.com/ubud-app/server/blob/develop/Privacy.md)
 - Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
+- &copy; Sebastian Pekarek under the [MIT license](LICENSE)
