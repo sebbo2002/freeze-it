@@ -12,31 +12,31 @@
 		"loadManifestWithCredentials": false,
 		"icons": {
 			"android": {
-				"offset": -10,
-				"background": "#666D77"
+				"offset": 10,
+				"background": "#212839"
 			},
 			"appleIcon": {
-				"offset": -5,
-				"background": "#666D77"
+				"offset": 10,
+				"background": "#212839"
 			},
 			"appleStartup": {
-				"offset": 0,
-				"background": "#666D77"
+				"offset": 20,
+				"background": "#212839"
 			},
 			"coast": {
-				"offset": -5,
-				"background": "#666D77"
+				"offset": 10,
+				"background": "#212839"
 			},
 			"favicons": {
-				"offset": -17
+				"offset": 0
 			},
 			"firefox": {
-				"offset": 0,
-				"background": "#666D77"
+				"offset": 15,
+				"background": "#212839"
 			},
 			"windows": {
 				"offset": 5,
-				"background": "#666D77"
+				"background": "#212839"
 			}
 		}
 	},
