@@ -53,14 +53,15 @@ deployment:
   only:
     - master
 
-publish:
-  stage: deploy
+publish_github:
+  stage: build
   tags:
     - matt.sebbo.net
     - ssh
   script:
-    - git push "https://${GITHUB_AUTH}@github.com/sebbo2002/freeze-it.git" --all
-    - git push "https://${GITHUB_AUTH}@github.com/sebbo2002/freeze-it.git" --tags
+    - git checkout $CI_COMMIT_REF_NAME
+    - git pull
+    - git push --force "https://${GITHUB_AUTH}@github.com/sebbo2002/plex-notifications.git" --all
     - curl -X "POST" "${HUB_WEBHOOK}"
   only:
     - master
