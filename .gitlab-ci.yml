@@ -53,6 +53,28 @@ deployment:
   only:
     - master
 
+deployment-melli:
+  stage: deploy
+  tags:
+    - matt.sebbo.net
+    - ssh
+  script:
+    - docker login -u "gitlab-ci-token" -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE
+    - docker stop "$CI_PROJECT_PATH_SLUG" || true
+    - docker rm "$CI_PROJECT_PATH_SLUG" || true
+    - docker create --restart "always" --name="$CI_PROJECT_PATH_SLUG-melli"
+      -p 127.0.0.1:10026:8080
+      --link mariadb:db
+      -e DATABASE="${MELLI_DATABASE}"
+      -e PRINTER_URL_PREFIX="${MELLI_PRINTER_URL_PREFIX}"
+      -e PRINTER_NAME="${MELLI_PRINTER_NAME}"
+      -e PRINTER_HOST="${MELLI_PRINTER_HOST}"
+      $CI_REGISTRY_IMAGE
+    - docker start "$CI_PROJECT_PATH_SLUG-melli"
+  only:
+    - master
+
 publish_github:
   stage: build
   tags:
