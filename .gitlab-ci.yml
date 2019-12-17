@@ -61,8 +61,8 @@ deployment-melli:
   script:
     - docker login -u "gitlab-ci-token" -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker pull $CI_REGISTRY_IMAGE
-    - docker stop "$CI_PROJECT_PATH_SLUG" || true
-    - docker rm "$CI_PROJECT_PATH_SLUG" || true
+    - docker stop "$CI_PROJECT_PATH_SLUG-melli" || true
+    - docker rm "$CI_PROJECT_PATH_SLUG-melli" || true
     - docker create --restart "always" --name="$CI_PROJECT_PATH_SLUG-melli"
       -p 127.0.0.1:10026:8080
       --link mariadb:db
