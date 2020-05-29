@@ -51,6 +51,7 @@ deployment:
       $CI_REGISTRY_IMAGE
     - docker start "$CI_PROJECT_PATH_SLUG"
   only:
+    - develop
     - master
 
 deployment-melli:
