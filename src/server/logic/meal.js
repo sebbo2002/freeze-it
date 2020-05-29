@@ -49,8 +49,19 @@ class MealLogic extends BaseLogic {
         return {model};
     }
 
-    static async update (model) {
-        await this.print(model);
+    static async get(id) {
+        return this.getModel().findByPk(id);
+    }
+
+    static async update (model, body) {
+        if(body.status && body.status !== model.status && this.getValidStatusValues().includes(body.status)) {
+            model.status = body.status;
+            await model.save();
+        }
+        if(body.reprint) {
+            await this.print(model);
+        }
+
         return {model};
     }
 
@@ -155,7 +166,7 @@ class MealLogic extends BaseLogic {
         const dataUri = await QRCode.toDataURL(url, {margin: 1});
 
         return `
-            <meta charset="utf-8" /> 
+            <meta charset="utf-8" />
             <style>
                 body {
                     position: relative;
@@ -179,7 +190,7 @@ class MealLogic extends BaseLogic {
                     background: #000;
                     color: #fff;
                 }
-                
+
                 .qr {
                     display: block;
                     margin: 0.6em auto;
@@ -188,7 +199,7 @@ class MealLogic extends BaseLogic {
                 .qr img {
                     width: 100%;
                 }
-                
+
                 .fields {
                     position: relative;
                     overflow: hidden;
@@ -205,7 +216,7 @@ class MealLogic extends BaseLogic {
                     border-style: solid;
                     border-color: #000;
                     border-width: 0 1px 1px 0;
-                    
+
                     font-size: 0.9em;
                     padding: 0.2em 0.4em;
                     flex: 1 0 auto;
@@ -214,7 +225,7 @@ class MealLogic extends BaseLogic {
                     background: #000;
                     color: #fff;
                 }
-                
+
                 .footer {
                     position: absolute;
                     bottom: 1em;;

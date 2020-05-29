@@ -72,7 +72,14 @@ rivets.formatters.string = (string, replacements) => {
     return ConfigurationHelper.getString(string, replacements);
 };
 rivets.formatters.date = (l, format = DateTime.DATE_FULL) => {
-    return l && l instanceof DateTime ? l.toLocaleString(format) : '';
+    if(l instanceof DateTime) {
+        return l.toLocaleString(format);
+    }
+    else if(typeof l === 'string') {
+        return DateTime.fromISO(l).toLocaleString(format);
+    }
+
+    return '';
 };
 rivets.formatters.time = (l, format = DateTime.TIME_SIMPLE) => {
     return l && l instanceof DateTime ? l.toLocaleString(format) : '';

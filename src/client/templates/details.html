@@ -1,0 +1,44 @@
+<h2 class="details__title" rv-class-details__title--fade-out="fadeOut.headline">
+    Details<span class="details__title-name">{ model:name }</span>
+</h2>
+
+<div class="details__container" rv-class-details__container--fade-out="fadeOut.bottom">
+    <dl class="details__list">
+        <dt class="details__list-key">Name</dt>
+        <dd class="details__list-value">{ model:name }</dd>
+
+        <dt class="details__list-key">Status</dt>
+        <dd class="details__list-value">
+            <select class="details__list-select" name="status" rv-value="model:status" rv-on-change="view.save">
+                <option value="available">Verfügbar</option>
+                <option value="eaten">Gegessen</option>
+                <option value="removed">Weggeschmissen</option>
+            </select>
+        </dd>
+
+        <dt class="details__list-key" rv-if="model:servings">Portionen</dt>
+        <dd class="details__list-value" rv-if="model:servings">{ model:servings }x</dd>
+
+        <dt class="details__list-key" rv-if="model:weight">Gewicht</dt>
+        <dd class="details__list-value" rv-if="model:weight">{ model:weight } g</dd>
+
+        <dt class="details__list-key" rv-if="model:category">Kategorie</dt>
+        <dd class="details__list-value" rv-if="model:category">{ model:category }</dd>
+
+        <dt class="details__list-key" rv-if="model:calories">Kalorien</dt>
+        <dd class="details__list-value" rv-if="model:calories">{ model:calories } kcal</dd>
+
+        <dt class="details__list-key">Zubereitet am</dt>
+        <dd class="details__list-value">{ model:cookedAt | date }</dd>
+
+        <dt class="details__list-key">Eingetragen am</dt>
+        <dd class="details__list-value">{ model:createdAt | date }</dd>
+    </dl>
+</div>
+
+<div class="details__buttons" rv-class-details__buttons--fade-out="fadeOut.bottom">
+    <button class="details__button details__button--print"
+            rv-on-click="view.print">Drucken</button>
+    <button class="details__button details__button--close"
+            rv-on-click="view.close">Zurück</button>
+</div>

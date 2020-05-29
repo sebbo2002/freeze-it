@@ -92,7 +92,7 @@ module.exports = View.extend({
     addMeal (model) {
         const meal = {
             click: () => {
-                alert(JSON.stringify(model));
+                this.open(model);
             },
             meta: '',
             model
@@ -140,6 +140,16 @@ module.exports = View.extend({
 
         this.hide(() => {
             const view = new AddView({collection});
+            AppHelper.view().renderView(view);
+        });
+    },
+
+    open (model) {
+        const DetailsView = require('./details');
+        const AppHelper = require('../helpers/app');
+
+        this.hide(() => {
+            const view = new DetailsView({model});
             AppHelper.view().renderView(view);
         });
     },
