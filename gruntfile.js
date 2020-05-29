@@ -349,8 +349,7 @@ module.exports = function (grunt) {
                             test: /\.(html)$/,
                             loader: 'html-loader',
                             options: {
-                                minimize: true,
-                                conservativeCollapse: false
+                                minimize: true
                             }
                         },
                         {
