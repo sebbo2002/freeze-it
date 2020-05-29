@@ -22,7 +22,6 @@ module.exports = function (grunt) {
      */
 
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-mkdir');
 
     // HTML
     grunt.loadNpmTasks('grunt-template');
@@ -174,6 +173,12 @@ module.exports = function (grunt) {
             htmlHeaderTags = response.html;
             done();
         });
+    });
+
+    /* 📦 Create dest folder */
+    grunt.registerTask('mkdir:dest', function () {
+        const fs = require('fs');
+        fs.mkdirSync(__dirname + '/dest');
     });
 
 
