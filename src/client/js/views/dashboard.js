@@ -117,7 +117,7 @@ module.exports = View.extend({
                 meta.push(days + ' Tag' + (days === 1 ? '' : 'e') + ' alt');
             }
             else if(days < 0) {
-                meta.push('läuft in ' + days + ' Tag' + (days === 1 ? '' : 'en') + ' ab');
+                meta.push('läuft in ' + (days * -1) + ' Tag' + (days === -1 ? '' : 'en') + ' ab');
             }
             else {
                 meta.push('heute');
