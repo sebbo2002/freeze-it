@@ -112,7 +112,16 @@ module.exports = View.extend({
 
             const dateField = model.get('cookedAt') ? 'cookedAt' : 'createdAt';
             const days = Math.round(DateTime.fromISO(model.get(dateField)).diffNow().negate().as('days'));
-            meta.push(days + ' Tag' + (days === 1 ? '' : 'e') + ' alt');
+
+            if(days > 0) {
+                meta.push(days + ' Tag' + (days === 1 ? '' : 'e') + ' alt');
+            }
+            else if(days < 0) {
+                meta.push('läuft in ' + days + ' Tag' + (days === 1 ? '' : 'en') + ' ab');
+            }
+            else {
+                meta.push('heute');
+            }
 
             meal.meta = meta.join(' · ');
         });

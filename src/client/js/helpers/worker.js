@@ -36,7 +36,7 @@ class WorkerHelper {
                         return;
                     }
 
-                    location.reload();
+                    // location.reload();
                 }
             };
         };
